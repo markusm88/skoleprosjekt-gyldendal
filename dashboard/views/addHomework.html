@@ -1,0 +1,43 @@
+<div id="list" class="noheader">
+	<form name="homeworkForm" ng-submit="add()">
+		<div class="form-group">
+			<label for="titleInput">Tittel</label>
+			<input type="text" class="form-control" ng-model="request.title" id="titleInput" placeholder="Tittel">
+		</div>
+		<div class="form-group">
+			<label for="descriptionInput">Beskrivelse</label>
+			<input type="text" class="form-control" ng-model="request.description" id="descriptionInput" placeholder="Beskrivelse">
+		</div>
+		<div class="form-group">
+			<label for="gameidInput">Oppgave</label>
+			<br>
+			<select ng-options="grade.value as grade.label for grade in grades" ng-model="difficultyFilter"></select>
+			<select ng-options="subject.name as subject.label for subject in subjects" ng-model="subjectFilter"></select>
+			<br><br>
+			<select ng-options="game.gameid as game.gamename for game in games | diffFilter | filter:{subjectname:subjectFilter}" ng-model="request.gameid">
+				<option value="" disabled selected>Velg oppgave</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="subjectInput">Lekse i hvilket fag:</label>
+			<br>
+			<select ng-options="subject.name as subject.name for subject in subjects" ng-model="subject"></select>
+		</div>
+		<div class="form-group">
+            
+			<label for="startDateInput">Startdato</label>
+			<input type="datetime-local" class="form-control" name="startDate" ng-model="sd" id="startDateInput">
+		</div>
+		<div class="form-group">
+			<label for="endDateInput">Sluttdato</label>
+			<input type="datetime-local" class="form-control" ng-model="ed" id="endDateInput">
+		</div>
+        <p style="font-size: .8em; line-height: 0; margin-bottom: 2em;">Husk å fyll inn tidspunkt etter dato</p>
+		<div class="form-group">
+			<label for="classInput">Velg klasse</label>
+			<select ng-options="class.classid as (class.grade + ' ' + class.classname) for class in classes" ng-model="selected"></select>
+		</div>
+		<input type="submit" class="btn btn-success" value="Lagre">
+		<button ng-click="cancel()" class="btn btn-default">Avbryt</button>
+	</form>
+</div>

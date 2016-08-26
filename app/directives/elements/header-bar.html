@@ -1,0 +1,28 @@
+  <header ng-if="loggedIn == 'true'" ng-controller="sidebarCtrl" class="hidemobil">
+   
+    <div id="taskcodeWrap">
+        <label for="taskcodeInput">Oppgavekode:</label>
+        <input ng-model="gamecodeInput" ng-blur="placeholder = '####'" ng-focus="placeholder = ''" type="text" pattern="\d*" id="taskcodeInput" minlength="4" maxlength="4" placeholder={{placeholder}} ng-keyup="$event.keyCode == 13 && toGame(gamecodeInput)">
+        <div class="gameCodeInfoWrap" ng-if="gamecodeInput">
+            <ul ng-repeat="info in gameCodeInfo" ng-click="toGame(info.gamecode)">
+                <img ng-srcset="{{info.gamepath}}/thumbnail.jpg" alt="{{info.gamename}}">
+                <li>{{info.gamename}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="logoutWrap">      
+        <p class="student" ng-if="userlvl <= 1"><i class="fa fa-user"></i> {{sessionInfo.username}}</p>
+        <p ng-click='backwards();' ><i class="fa fa-arrow-left"></i> Tilbake</p>
+        <p><a href="#/"><i class="fa fa-home"></i> Hjem</a></p>
+        <p><a href="#/" ng-click='logOut();'><i class="fa fa-sign-out"></i>
+ Logg ut</a></p>
+    </div>
+
+</header>
+
+
+<header ng-if="loggedIn != 'true'">
+    <div id="logo"></div>
+</header>
+

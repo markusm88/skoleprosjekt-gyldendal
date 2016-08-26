@@ -1,0 +1,43 @@
+<header>
+    <label class="selectWrap">
+        <select ng-options="class.classid as (class.grade + ' ' + class.classname) for class in classes" ng-model="selected">
+        </select>
+    </label>
+    <label class="weekWrap">
+        Filtrer etter uke:
+        <select ng-options="week as week for week in weeks" ng-model="selectedWeek">
+        </select>
+    </label>
+    <div class="welcome">Velkommen, {{userinfo.name}} {{userinfo.surname}}!</div>
+</header>
+<div id="list">
+    <table class="table table-striped table-bordered">
+        <button class="btn btn-link addStudent" ng-click="add()"><i class="fa fa-plus fa-2x"></i> Legg til lekse</button>
+        <tbody>
+            <tr>
+                <th>Tittel</th>
+                <th>Fag</th>
+                <th>Beskrivelse</th>
+                <th>Spillnavn</th>
+                <th>Startuke</th>
+                <th>Sluttuke</th>
+                <th>Lærer</th>
+                <th>Rediger</th>
+            </tr>
+            <tr ng-repeat="homework in homeworks | filterByWeek:selectedWeek | orderBy:'-enddate'">
+                <td>{{homework.title}}</td>
+                <td>{{homework.subject}}</td>
+                <td>{{homework.description}}</td>
+                <td>{{homework.game.gamename || "Ikke satt"}}</td>
+                <td>{{homework.startweek}}</td>
+                <td>{{homework.endweek}}</td>
+                <td>{{(homework.teacher.name + " " + homework.teacher.surname) || "Ikke satt"}}</td>
+                <td>
+                    <button class="btn btn-warning" ng-click="edit(homework.homeworkid)">Rediger</button>
+                    <button class="btn btn-danger" ng-click="delete(homework)">Slett</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h1 class="chooseClass" ng-hide="homeworks">Velg klasse for å vise lekser</h1>
+</div>

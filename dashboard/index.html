@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="dashboard">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../bower_components/ngtoast/dist/ngToast.css">
+    <link rel="stylesheet" href="../bower_components/angular-loading-bar/src/loading-bar.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <title>Salaby</title>
+</head>
+
+<body ng-controller="dashboardCtrl">
+    <toast></toast>
+    <nav ng-controller="navCtrl">
+        <a href="../">
+            <div id="logo"></div>
+        </a>
+        <ul>
+            
+            <a href="#/">
+                <li ng-class="{active:isActive('/')}"><i class="fa fa-list"></i>Lekser</li>
+            </a>
+            <a href="#/students">
+                <li ng-class="{active:isActive('/students')}"><i class="fa fa-users"></i>Elever</li>
+            </a>
+        </ul>
+        <a href="../">
+            <li class="bottom"><i class="fa fa-arrow-left"></i>Tilbake til salaby</li>
+        </a>
+    </nav>
+    <section id="content">
+        <div ng-view></div>
+    </section>
+</body>
+
+<!-- Bower -->
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-route/angular-route.js"></script>
+<script src="../bower_components/angular-animate/angular-animate.js"></script>
+<script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="../bower_components/ngtoast/dist/ngToast.js"></script>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/angular-loading-bar/src/loading-bar.js"></script>
+<script src="../bower_components/angular-ui-date/src/date.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js"></script>
+<!--/ Bower -->
+
+<!-- Angular app -->
+<script src="app/controllers/controllers.js"></script>
+<script src="app/directives/directives.js"></script>
+<script src="app/app.js"></script>
+<!--/ Angular app -->
+
+</html>

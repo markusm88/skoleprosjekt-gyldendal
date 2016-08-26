@@ -1,0 +1,47 @@
+<!-- about.html -->
+    <div class="logRegWrap">
+        <h1>Registrer Student</h1>
+        <section>
+        	<form name="registerForm" class="regForm" novalidate>
+                <div>
+                    <input type="text" name="name" ng-model="register.name" ng-model-options="{ debounce: 500 }" ng-pattern="/^[ÆØÅæøåa-zA-Z]{3,30}$/" placeholder="*Navn" required>
+                    <span class="form-alert alert-red" ng-show="registerForm.name.$invalid && registerForm.name.$dirty">Navn må inneholde kun bokstaver, min. 3</span>
+                    <span class="form-alert alert-yellow" ng-show="registerForm.name.$pristine && registerForm.$submitted">Husk -></span>
+                </div>
+
+                <div>
+                    <input type="text" name="surname" ng-model="register.surname" ng-model-options="{ debounce: 500 }" ng-pattern="/^[ÆØÅæøåa-zA-Z]{3,30}$/" placeholder="*Etternavn" required> 
+                    <span class="form-alert alert-red" ng-show="registerForm.surname.$invalid && registerForm.surname.$dirty">Navn må inneholde kun bokstaver, min. 3</span>
+                    <span class="form-alert alert-yellow" ng-show="registerForm.surname.$pristine && registerForm.$submitted">Husk -></span>
+                </div>
+
+                <div>
+                    <input type="password" name="password" ng-pattern="/(?=.*\d)(?=.*[ÆØÅæøåa-zA-Z]).{6,30}/" ng-model="register.password" ng-model-options="{ debounce: 500 }" placeholder="*Passord" required> 
+                    <span class="form-alert alert-red" ng-show="registerForm.password.$invalid && registerForm.password.$dirty">Må inneholde min. seks tegn, og et nummer</span>
+                    <span class="form-alert alert-yellow" ng-show="registerForm.password.$pristine && registerForm.$submitted">Husk -></span>
+                </div>
+
+                <div>
+                    <input type="email" name="epost" ng-model="register.email" placeholder="Epost" ng-model-options="{ debounce: 500 }">
+                    <span class="form-alert alert-red" ng-show="registerForm.epost.$invalid && registerForm.epost.$dirty">Ugyldig e-post adresse</span>
+                </div>
+
+                <div>
+                    <select name="school" ng-options="school.schoolid as school.name for school in schoolList" ng-model="selectedSchool" required>
+                        <option value="">*Velg skole...</option>
+                    </select>
+                    <span class="form-alert alert-yellow" ng-show="registerForm.school.$pristine && registerForm.$submitted">Husk -></span>
+                </div>
+
+                <div>
+                    <select name="class" ng-options="class.classid as (class.grade + ' ' + class.classname) for class in classList" ng-model="selectedClass" required>
+                        <option value="">*Velg klasse...</option>
+                    </select>
+                    <span class="form-alert alert-yellow" ng-show="registerForm.class.$pristine && registerForm.$submitted">Husk -></span>
+                </div>
+                <br>
+                <button class="alignright" ng-click='registerForm.$valid && regUser(register);'>Registrer</button>
+            </form>
+            <a href="#/"><p class="alignleft">Logg inn</p></a>
+        </section>
+    </div>

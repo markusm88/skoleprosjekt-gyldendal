@@ -1,0 +1,109 @@
+.animate-if.ng-enter, .animate-if.ng-leave {
+	transition: all 0.25s ease-in-out;
+}
+
+.animate-if.ng-enter,
+.animate-if.ng-leave.ng-leave-active {
+	-webkit-animation: bounceOutLeft 1s;
+	-moz-animation: bounceOutLeft 1s;
+	-o-animation: bounceOutLeft 1s;
+	animation: bounceOutLeft 1s;
+}
+
+.animate-if.ng-leave,
+.animate-if.ng-enter.ng-enter-active {
+	-webkit-animation: bounceInLeft 1s;
+	-moz-animation: bounceInLeft 1s;
+	-o-animation: bounceInLeft 1s;
+	animation: bounceInLeft 1s;
+}
+
+/*--------------------------*\
+	IntroSalabi
+\*--------------------------*/
+.introSalami.ng-enter,
+.introSalami.ng-leave.ng-leave-active {
+	-webkit-animation: bounceOutRight 1s;
+	-moz-animation: bounceOutRight 1s;
+	-o-animation: bounceOutRight 1s;
+	animation: bounceOutRight 1s;
+}
+
+.introSalami.ng-leave,
+.introSalami.ng-enter.ng-enter-active {
+	-webkit-animation: bounceInRight 1s;
+	-moz-animation: bounceInRight 1s;
+	-o-animation: bounceInRight 1s;
+	animation: bounceInRight 1s;
+}
+
+/*--------------------------*\
+	GamesWrapper
+\*--------------------------*/
+.gameWrapper {
+	position: relative;
+	opacity: 1;
+}
+/*.gameWrapper.ng-enter, .gameWrapper.ng-leave {
+	transition: all 0.25s ease-in-out;
+}*/
+.gameWrapper.ng-enter,
+.gameWrapper.ng-leave.ng-leave-active {
+	-webkit-animation: flipOutX 1s;
+	-moz-animation: flipOutX 1s;
+	-o-animation: flipOutX 1s;
+	animation: flipOutX 1s;
+	opacity: 0;
+}
+
+.gameWrapper.ng-leave,
+.gameWrapper.ng-enter.ng-enter-active {
+	-webkit-animation: flipInX 1s;
+	-moz-animation: flipInX 1s;
+	-o-animation: flipInX 1s;
+	animation: flipInX 1s;
+	opacity: 1;
+}
+
+.gameWrapper.ng-enter-stagger {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+.gameWrapper.ng-leave-stagger {
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+
+/*--------------------------*\
+	Login Error
+\*--------------------------*/
+.loginError-if {
+	-webkit-animation: shake 1s;
+	-moz-animation: shake 1s;
+	-o-animation: shake 1s;
+	animation: shake 1s;
+}
+
+/*--------------------------*\
+	Mobile nav
+\*--------------------------*/
+.mobilenav.ng-enter, .mobilenav.ng-leave {
+	transition: all 0.25s ease-in-out;
+}
+
+.mobilenav.ng-enter,
+.mobilenav.ng-leave.ng-leave-active {
+	-webkit-animation: bounceOutUp 1s;
+	-moz-animation: bounceOutUp 1s;
+	-o-animation: bounceOutUp 1s;
+	animation: bounceOutUp 1s;
+}
+
+.mobilenav.ng-leave,
+.mobilenav.ng-enter.ng-enter-active {
+	-webkit-animation: bounceInDown .8s;
+	-moz-animation: bounceInDown 1s;
+	-o-animation: bounceInDown 1s;
+	animation: bounceInDown 1s;
+}

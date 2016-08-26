@@ -1,0 +1,9 @@
+<!-- subject.html -->
+<div id="subjectsHeader">
+	<h1>{{subjectHeader}}</h1>
+    <input ng-model="search.gamename" type="text" placeholder="Søk etter oppgave">
+ </div>
+	<div ng-repeat="subjectGame in subjectGames | filter: search | diffFilter" class="gameWrapper" ng-click="selectedGame(subjectGame.gamecode)" style="background-image: url('games/{{subjectGame.gamecode}}/thumbnail.jpg')">
+		<h3>{{subjectGame.gamename}}</h3>
+		<br>
+	</div>

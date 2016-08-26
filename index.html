@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="salaby" lang="no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0;" />
+    <link rel="stylesheet" href="js/dist/css/swiper.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <title>Salaby</title>
+</head>
+
+<body ng-controller="mainController">
+
+    <!-- SIDEBAR-->
+    <main-nav></main-nav>
+    <mobile-nav></mobile-nav>
+
+    <!-- MAIN CONTENT AND INJECTED VIEWS -->
+    <section id="content" ng-class="{ 'contentOnLogin': loggedIn == 'true'}">
+        <header-bar></header-bar>
+        <mobile-header-bar></mobile-header-bar>
+        <div class="view" ng-view></div>
+    </section>
+
+</body>
+
+<!-- Bower -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="js/dist/js/swiper.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js"></script>
+<!--/ Bower -->
+
+<!-- Angular app -->
+<script src="app/controllers/controllers.js"></script>
+<script src="app/directives/directives.js"></script>
+<script src="app/services/loginServices.js"></script>
+<script src="app/services/logoutServices.js"></script>
+<script src="app/app.js"></script>
+<!--/ Angular app -->
+
+</html>

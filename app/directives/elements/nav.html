@@ -1,0 +1,31 @@
+<nav ng-if="loggedIn == 'true'" class="animate-if hidemobil" ng-controller="sidebarCtrl">
+	<a href="#/"><div id="logo"></div></a>
+	<div id="selectClassWrap">
+		<label class="selectWrap">
+			<select ng-options="grade as grade.label for grade in grades" ng-model="selectDifficulty">
+			</select>
+		</label>
+	</div>
+    
+	<hr class="hrIndent">
+    
+	<div id="homeworkWrap" ng-show="userlvl <= 1">
+		<h2>Lekser</h2>
+		<ul>
+			<li class="subject" ng-repeat="homework in getHomework">
+				<p class="subjectTitle">{{homework.subject}}</p>
+				<p class="homeworkTitle">{{homework.title}}</p>
+                <p class="duedateTitle">Oppgave:</p>
+				<p class="homeworkDescription">{{homework.description}}</p>
+                <a href="#/home/oppgave/{{homework.game.gamecode}}"><p class="homeworkDescription">Gå til lekse</p></a>
+				<p class="duedateTitle">Frist:</p>
+                <p class="duedateDate">{{homework.enddate}}</p>
+                
+                <hr class="hrIndent">
+			</li>
+            
+		</ul>
+	</div>
+    
+    <p ng-if="userlvl > 1"><a class="btn teacher-btn" href="dashboard"><i class="fa fa-list-alt"></i> Lærerpanel</a></p>
+</nav>

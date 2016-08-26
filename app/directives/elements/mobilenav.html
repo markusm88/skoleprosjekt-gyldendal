@@ -1,0 +1,48 @@
+<nav ng-if="loggedIn == 'true' && showMenu" class="showmobil mobilenav" ng-controller="sidebarCtrl">
+	<div id="logoutWrap">
+        <p ng-if="userlvl > 1"><a class="btn" href="dashboard"><i class="fa fa-list-alt"></i> Lærerpanel</a></p>
+        <p ng-if="userlvl <= 1"><i class="fa fa-user"></i> {{sessionInfo.username}}</p>
+        <!--<p ng-click='backwards();' ><i class="fa fa-arrow-left"></i> Tilbake</p>-->
+        <p><a href="#/"><i class="fa fa-home"></i> Hjem</a></p>
+        <p><a href="#/" ng-click='logOut();'><i class="fa fa-sign-out"></i>
+ Logg ut</a></p>
+    </div>
+    
+    <hr class="hrIndent">
+    
+    <div id="taskcodeWrap">
+        <label for="taskcodeInput">Oppgavekode:</label>
+        <input ng-model="gamecodeInput" ng-blur="placeholder = '####'" ng-focus="placeholder = ''" type="text" pattern="\d*" id="taskcodeInput" minlength="4" maxlength="4" placeholder={{placeholder}} ng-keyup="$event.keyCode == 13 && toGame(gamecodeInput)">
+        <div class="gameCodeInfoWrap" ng-if="gamecodeInput">
+            <ul ng-repeat="info in gameCodeInfo" ng-click="toGame(info.gamecode)">
+                <img ng-srcset="{{info.gamepath}}/thumbnail.jpg" alt="{{info.gamename}}">
+                <li>{{info.gamename}}</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="selectClassWrap">
+		<label class="selectWrap">
+			<select ng-options="grade as grade.label for grade in grades" ng-model="selectDifficulty">
+			</select>
+		</label>
+	</div>
+    
+    <hr class="hrIndent">
+    
+	<div id="homeworkWrap" ng-show="userlvl <= 1">
+		<h2>Lekser</h2>
+		<ul>
+			<li class="subject" ng-repeat="homework in getHomework">
+				<p class="subjectTitle">{{homework.subject}}</p>
+				<p class="homeworkTitle">{{homework.title}}</p>
+                <p class="duedateTitle">Oppgave:</p>
+				<p class="homeworkDescription">{{homework.description}}</p>
+				<p class="duedateTitle">Frist:</p>
+                <p class="duedateDate">{{homework.enddate}}</p>
+                
+                <hr class="hrIndent">
+			</li>
+		</ul>
+	</div>
+</nav>

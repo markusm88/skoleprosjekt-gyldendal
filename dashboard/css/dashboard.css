@@ -1,0 +1,268 @@
+/*---------------*\
+   BOWER IMPORTS
+\*---------------*/
+
+@import "../../bower_components/font-awesome/css/font-awesome.min.css";
+@import "../../bower_components/animate.css/animate.min.css";
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+/*---------------*\
+   RESETS AND STANDARDS
+\*---------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Lato', 'Helvetica', Helvetica, Arial, sans-serif;
+    font-size: 1em;
+}
+
+body {
+    background: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 700;
+    margin: 0;
+}
+
+.clear:after {
+    clear: both;
+    content: '';
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 1em 0;
+}
+
+*:focus {
+    outline: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+}
+
+.wrapper {
+    width: 960px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.wrapper:after {
+    clear: both;
+    content: '';
+    display: block;
+}
+
+::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+:-moz-placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+nav {
+    position: relative;
+    width: 220px;
+    height: 100vh;
+    background: #f8f8f8;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    color: #333;
+    overflow: auto;
+    float: left;
+}
+
+nav a:hover,
+nav a:focus,
+nav a:active {
+    color: #333;
+    text-decoration: none;
+}
+
+nav ul {
+    width: 100%;
+    height: calc(100vh - 9rem);
+    overflow: auto;
+}
+
+nav li {
+    width: 100%;
+    height: 4rem;
+    line-height: 4rem;
+    padding: 0 1rem;
+    list-style: none;
+    transition: all 0.2s ease;
+}
+
+.welcome {
+    float: right;
+    line-height: 4rem;
+    margin-right: 20px;
+}
+
+.welcome:hover {
+    background: transparent;
+}
+
+nav li.bottom {
+    margin: 0;
+    color: white;
+    background: #d9534f;
+}
+
+nav li.bottom:hover {
+    background: #c9302c;
+}
+
+nav ul li:hover,
+nav ul li.active {
+    background: #eee;
+}
+
+nav ul li i {
+    margin-right: 0.5rem;
+}
+
+#logo {
+    width: 100%;
+    height: 5rem;
+    background: url(../../img/logo.png) no-repeat center center;
+    background-size: auto 50%;
+}
+
+#content {
+    width: calc(100% - 220px);
+    height: 100vh;
+    float: right;
+}
+
+header {
+    width: 100%;
+    height: 4rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgb(248, 248, 248);
+}
+
+.selectWrap select {
+    font-family: 'Lato', 'Helvetica', Helvetica, Arial, sans-serif;
+    padding: 0 1rem;
+    height: 4rem;
+    font-size: 1rem;
+    width: 8rem;
+    margin: 0;
+    font-weight: bold;
+    background: transparent;
+    color: black;
+    border: none;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 0;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .selectWrap select {
+        padding-right: 18px
+    }
+}
+
+label.selectWrap {
+    position: relative
+}
+
+label.selectWrap:after {
+    content: '>';
+    font: 1rem "Consolas", monospace;
+    color: black;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    right: 1em;
+    top: 1.5em;
+    position: absolute;
+    pointer-events: none;
+}
+
+input[type="search"] {
+    border: none;
+    background: transparent;
+    outline: none;
+    height: 4rem;
+    color: black;
+    padding: 0 1rem;
+    font-family: FontAwesome, "lato";
+}
+
+#list {
+    width: 100%;
+    height: calc(100vh - 4rem);
+    padding: 1rem;
+    overflow: auto;
+}
+
+.noheader {
+    height: 100vh !important;
+}
+
+.addStudent {
+    line-height: 1.8rem;
+    vertical-align: top;
+}
+
+#loading-bar .bar {
+    background: red!important;
+    height: 3px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.chooseClass {
+    width: 100%;
+    color: #555;
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.weekWrap {
+    padding: 0 1rem;
+}

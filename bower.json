@@ -1,0 +1,18 @@
+{
+    "name": "Salaby",
+    "version": "1.0.0",
+    "dependencies": {
+        "bootstrap": "latest",
+        "font-awesome": "latest",
+        "ngtoast": "latest",
+        "animate.css": "latest",
+        "jquery": "latest",
+        "jquery-ui": "latest",
+        "angular-ui-date": "latest",
+        "angular-loading-bar": "latest",
+        "angular": "latest",
+        "angular-animate": "latest",
+        "angular-sanitize": "latest",
+        "angular-route": "latest"   
+    }
+}

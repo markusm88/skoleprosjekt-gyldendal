@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Swipe</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body>
+<div id="wrapper">
+<div class="empWrap">
+				<div class="employeeSwipeBackground"><i class="fa"></i></div>
+				<div class="employeeCard">
+					<h1>Er det Sara sier sant eller usant?</h1>
+					<div class="question-img-wrapper">
+						<div class="sara"><img src="img/sara_1.png">
+						<div class="question"></div>
+						</div>
+					</div>
+					<div class="descMobile">
+						<i class="fa fa-long-arrow-left fa-2x"></i>
+						<p>Swipe mot venstre for usant</p>
+						<p>Swipe mot høyre for sant</p>
+						<i class="fa fa-long-arrow-right fa-2x"></i>
+					</div>
+					<div class="descDesktop">
+						<p><input type="button" value="Sant" onclick="checkAnswer('true')" id="true-button" class="button"></p>
+						<p><input type="button" value="Usant" onclick="checkAnswer('false')" id="false-button" class="button"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript">
+	var elm = $('.employeeCard');
+	var questionDiv = $('.question');
+	var startX = -1;
+	var elmWidth = elm.width()/3;
+	var q = 0;
+	var score = 0;
+	var questions =[
+		{
+			'question': 'Hinduismen er den største religionen i India.',
+			'answer': 'true',
+		},
+		{
+			'question': 'De tre viktigste gudene er Brahma, Vishnu og Shiva.',
+			'answer': 'true',
+		},
+		{
+			'question': 'Brahma er guden som ødelegger verden.',
+			'answer': 'false',
+		},
+		{
+			'question': 'Vishnu er guden som opprettholder verden.',
+			'answer': 'false',
+		},
+		{
+			'question': 'Etter at vi dør, blir vi gjenfødt igjen. En hindus mål er å bli fri fra gjenfødelsen.',
+			'answer': 'true',
+		},
+		{
+			'question': 'Hinduer kan kun be i tempelet.',
+			'answer': 'false',
+		},
+		{
+			'question': 'Hinduene vasker gudestatuene og gir dem gaver, som blomster, mat og drikke. Det er også vanlig å tenne lys og røkelse. De kan også danse og synge for gudene. Dette kalles pudsja.',
+			'answer': 'true',
+		},
+		{
+			'question': 'Pudsja gjøres som regel på kvelden rett før legge tid.',
+			'answer': 'false',
+		},
+		{
+			'question': 'Pilegrimsreiser er viktig for hinduer. På en slik reise er det vanlig å dra til et hellig sted.',
+			'answer': 'true',
+		},
+		{
+			'question': 'Elven ganges er oppkalt etter elvegudinnen Ganga.',
+			'answer': 'true',
+		},
+		{
+			'question': 'Når en hindu kommer til elven Ganges, skal han helst bade eller vaske seg for å gjøre sjelen ren.',
+			'answer': 'true',
+		},
+		{
+			'question': 'Hinduene kaller ofte templene sine mandir som betyr «det indre jeg».',
+			'answer': 'true',
+		},
+		{
+			'question': 'Det er forbudt å bade i bassengene i hinduistiske templer.',
+			'answer': 'false',
+		},
+		{
+			'question': 'Bhagavadgita er en av hinduismens viktigste skrifter og betyr «Herrens sang».',
+			'answer': 'true',
+		},
+		{
+			'question': 'I Bhagavadgita forklarer gudene Krishna og krigeren Arjuan at man ikke kan bli fri fra gjenfødelsen',
+			'answer': 'false',
+		},
+		{
+			'question': 'Bhagavadgita inspirerte Mahatma Gandhi til å kjempe for frihet for folket sitt på en ikkevoldlig måte.',
+			'answer': 'true',
+		},
+		{
+			'question': 'For en hindu er alt liv hellig. Spesielt kua er et hellig dyr og minner om rikdom og liv.',
+			'answer': 'true',
+		},
+		{
+			'question': 'Kukjøtt spises av hinduer ved finere annledninger. Hinduer mener kukjøtt er det reneste og beste kjøttet man kan spise fordi ingen hinduer har vært slemme mot kuene.',
+			'answer': 'false',
+		},
+		{
+			'question': 'Karmas lov sier at det du gjør i dette livet, bestemmer hvordan det neste livet blir.',
+			'answer': 'true',
+		},
+		{
+			'question': 'Hvis du lever mange gode liv, kan du til slutt slippe å bli gjenfødt. Da har du oppnådd moksha.',
+			'answer': 'true',
+		},
+		{
+			'question': 'Moksha er enkelt å oppnå for de fleste hinduer.',
+			'answer': 'false',
+		},
+
+	];
+	questionDiv.text(questions[q].question);
+	var checkAnswer = function(answer){
+		var answerIs = (answer == questions[q].answer);
+		q++;
+		if (answerIs) score++;
+		if (q < questions.length) {
+			questionDiv.text(questions[q].question);
+		} else {
+			questionDiv.text("Din score: " + score + " av " + questions.length + " mulige poeng!");
+			elm.draggable( 'disable' );
+			$('.button').attr("disabled", true);
+		}
+	};
+
+	elm.draggable({
+		axis: "x",
+		revert: true,
+		start: function(e) {
+			startX = e.pageX;
+		},
+		stop: function(e) {
+			//question 2
+			if (e.pageX > (startX + elmWidth) && e.pageX > startX) {
+				checkAnswer('true');
+			} else if (e.pageX < (startX - elmWidth) && e.pageX < startX) {
+				checkAnswer('false');
+			}
+		},
+		drag: function(e) {
+			var prev = elm.prev();
+			if (e.pageX > startX) {
+				prev.css("background", "rgba(46, 204, 113,1.0)");
+				prev.children().removeClass("empIconRight active");
+				prev.children().addClass("empIconLeft").text("Sant");
+				if (e.pageX > (startX + elmWidth)) {
+					prev.children().addClass("active");
+				}
+			} else if (e.pageX < startX) {
+				prev.css("background", "rgba(231, 76, 60, 1.0)");
+				prev.children().removeClass("empIconLeft active");
+				prev.children().addClass("empIconRight").text("Usant");
+				if (e.pageX < (startX - elmWidth)) {
+				 	prev.children().addClass("active");
+				}
+		}
+		}
+	});
+</script>
+
+</script>
+
+</html>

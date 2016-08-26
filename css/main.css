@@ -1,0 +1,994 @@
+/*---------------*\
+   BOWER IMPORTS
+\*---------------*/
+@import "../bower_components/font-awesome/css/font-awesome.min.css";
+@import "../bower_components/animate.css/animate.min.css";
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+
+/*---------------------*\
+   Resets and standards
+\*---------------------*/
+
+*{margin: 0; padding: 0; box-sizing: border-box; -moz-box-sizing:border-box;-webkit-overflow-scrolling: touch;}
+html, body {font-family: 'Lato', 'Helvetica', Helvetica, Arial, sans-serif;font-size: 1em;}
+body {background: white;}
+h1, h2, h3, h4, h5 {font-weight: 700;margin: 1em 0;}
+.clear:after {clear:both;content: '';display: block;}
+a {text-decoration: none; color: inherit;transition: all 0.2s ease;-webkit-transition: all 0.2s ease;}
+a:hover {color: white;}
+p {font-size: 1em; line-height: 1.6; margin: 1em 0;}
+*:focus{outline: none;}
+ul {list-style: none; margin: 0;}
+.wrapper{width: 960px; max-width: 100%; margin: 0 auto;}
+.wrapper:after {
+	clear: both;
+	content: '';
+	display: block;
+}
+
+.hidemobil {
+	display: none;
+}
+.showmobil {
+	display: block;
+}
+
+@media ( min-width : 768px ) {
+	.hidemobil {
+		display: block;
+	}
+	.showmobil {
+		display: none;
+	}
+}
+
+
+body {
+	background: url(../img/bg.jpg) no-repeat center center;
+	background-size: cover;
+	overflow: hidden;
+}
+
+img{
+	max-width: 100%;
+	height: auto;
+}
+
+::-webkit-input-placeholder {color: rgba(0,0,0,0.6);}
+:-moz-placeholder {color: rgba(0,0,0,0.6);}
+::-moz-placeholder {color: rgba(0,0,0,0.6);}
+:-ms-input-placeholder {color: rgba(0,0,0,0.6);}
+
+::-webkit-scrollbar { width: 0 !important; display: none; background: transparent; }
+::-ms-scrollbar { width: 0 !important; display: none; background: transparent; }
+::-moz-scrollbar { width: 0 !important; display: none; background: transparent; }
+
+
+.blue {
+	background: #00a8ff!important;
+}
+
+.alignleft{float:left;}
+.alignright{float:right;}
+
+hr { border: 1px solid rgba(255,255,255, .4); }
+.hrIndent {
+	border-bottom: 1px solid rgba(255,255,255,0.2);
+	border-top: 1px solid rgba(0,0,0,0.1);
+	margin: 1em 0;
+}
+
+.view {
+	width: 100%;
+	height: calc(100vh - 8rem);
+    padding: 4em 0 0;
+}
+@media ( min-width : 768px ) {
+	.view {
+		/*height: calc(100vh - 7rem);*/
+		width: calc(100% + 35px); /* Hide scrollbar */ 
+        padding: 0;
+	}
+}
+
+nav {
+	background: -webkit-linear-gradient(135deg, #00a8ff 10%, #00ccff 90%); /* Chrome 10+, Saf5.1+ */
+	background:    -moz-linear-gradient(135deg, #00a8ff 10%, #00ccff 90%); /* FF3.6+ */
+	background:     -ms-linear-gradient(135deg, #00a8ff 10%, #00ccff 90%); /* IE10 */
+	background:      -o-linear-gradient(135deg, #00a8ff 10%, #00ccff 90%); /* Opera 11.10+ */
+	background:         linear-gradient(135deg, #00a8ff 10%, #00ccff 90%); /* W3C */
+	height: 100vh;
+	color: white;
+}
+
+@media ( min-width : 768px ) {
+	nav {
+		position: relative;
+		width: 220px;
+		overflow: auto;
+		float: left;
+	}
+}
+
+#logo {
+	width: 100%;
+	height: 5em;
+	background: url(../img/logo.png) no-repeat center center;
+	background-size: auto 92%;
+}
+
+
+#selectClassWrap {
+    width: 38%;
+    padding: 0em;
+    padding-right: 1em;
+    display: inline-block;
+}    
+@media ( min-width : 768px ) {
+    #selectClassWrap {
+        width: 100%;
+        padding: 1em;
+    }
+}
+
+.selectWrap select {
+	font-family: 'Lato', 'Helvetica', Helvetica, Arial, sans-serif;
+	padding: 0 1rem;
+	height: 3rem;
+	font-size: 1rem;
+	width: 100%;
+	margin: 0;
+	font-weight: 300;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:0.5em;
+	background: rgba(255,255,255,0.2);
+	color:white;
+	border:none;
+	outline:none;
+	display: inline-block;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+	cursor:pointer;
+}
+
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	.selectWrap  select {padding-right:18px}
+}
+
+label.selectWrap {position:relative}
+label.selectWrap:after {
+	content:'>';
+	font:1rem "Consolas", monospace;
+	color:white;
+	-webkit-transform:rotate(90deg);
+	-moz-transform:rotate(90deg);
+	-ms-transform:rotate(90deg);
+	transform:rotate(90deg);
+	right:1em; top:2px;
+	position:absolute;
+	pointer-events: none;
+}
+
+#homeworkWrap {
+	width: 100%;
+	padding: 1em;
+	line-height: 1.2;
+    overflow: scroll;
+    height: calc(100vh - 16em);
+}
+
+#homeworkWrap h2{
+	font-weight: 400;
+	margin: 0 0 .8em;
+}
+
+#homeworkWrap ul{
+	font-weight: 300;
+}
+
+#homeworkWrap ul a{
+	color: rgba(255,255,255,0.8);
+}
+
+#homeworkWrap ul a:hover{
+	color: rgba(255,255,255,1);
+}
+
+#homeworkWrap ul li.subject{
+	font-weight: 400;
+}
+
+#homeworkWrap ul li.done{
+	text-decoration: line-through;
+}
+
+#homeworkWrap ul li p{
+    margin: 0px;
+    font-size: 0.9em;
+    line-height: 1.4em;
+}
+#homeworkWrap ul li a{
+    text-decoration: underline;
+}
+
+#homeworkWrap li .subjectTitle {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: rgba(255,255,255,0.6);
+}
+
+#homeworkWrap li .homeworkTitle {
+}
+
+#homeworkWrap li .homeworkDescription {
+    margin-bottom: .6em;
+}
+
+#homeworkWrap li .duedateTitle {
+    margin-top: .6em;
+    color: rgba(255,255,255,0.6);
+}
+
+#homeworkWrap li .duedateDate {
+}
+
+/* BUTTONs */
+.btn {
+	font-family: Arial;
+	color: #ffffff;
+	/*padding: 10px 20px 10px 20px;*/
+	text-decoration: none;
+}
+
+.btn-sidebar {
+	margin: 1em 1em;
+}
+
+.teacher-btn {
+    margin: 2em 1em;
+}
+
+@media ( min-width : 768px ) {
+    #homeworkWrap {height: calc(100vh - 13em);}
+	.btn {
+        background: #3498db;
+        background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+        background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+        background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+        background-image: -o-linear-gradient(top, #3498db, #2980b9);
+        background-image: linear-gradient(to bottom, #3498db, #2980b9);
+        -webkit-border-radius: 5;
+        -moz-border-radius: 5;
+        border-radius: 5px;
+        font-family: Arial;
+        padding: 10px 20px 10px 20px;
+    }
+    
+    .btn:hover {
+        background: #3cb0fd;
+        background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+        background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+        text-decoration: none;
+    }
+    
+    .btn-two {
+        background: #2ECC70;
+        background-image: -o-linear-gradient(bottom, #2ECC70 50%, #27AE5F 90%);
+        background-image: -moz-linear-gradient(bottom, #2ECC70 50%, #27AE5F 90%);
+        background-image: -webkit-linear-gradient(bottom, #2ECC70 50%, #27AE5F 90%);
+        background-image: -ms-linear-gradient(bottom, #2ECC70 50%, #27AE5F 90%);
+        background-image: linear-gradient(to bottom, #2ECC70 50%, #27AE5F 90%);
+        -webkit-border-radius: 5;
+        -moz-border-radius: 5;
+        border-radius: 5px;
+        padding: 10px 20px 10px 20px;
+        color: white;
+        margin: 5px 0;
+    }
+}
+/*--------------------------*\
+	Content wrapper
+\*--------------------------*/
+#content {
+	padding: 0rem;
+	height: 100vh;
+}
+
+@media ( min-width : 768px ) {
+	#content {
+		padding: 1rem;
+	}
+
+	.contentOnLogin {
+		width: calc(100% - 220px) !important;
+		height: 100vh;
+		float: left;
+	}
+}
+
+header {
+	height: 5rem;
+	width: 100%;
+	color: #005b7f;
+}
+
+#taskcodeWrap {
+    position: relative;
+    display: inline-block;
+    width: 60%;
+    text-align: left;
+    padding: 0 1em;
+}
+
+#taskcodeWrap input {
+    font-family: 'Lato', 'Helvetica', Helvetica, Arial, sans-serif;
+    text-align: center;
+    height: 3rem;
+    background: rgba(0,0,0,0.1);
+    border: none;
+    font-size: .8rem;
+    color: white;
+    border-radius: 0.5em;
+}
+
+#taskcodeWrap label { margin: .8em;}
+
+.gameCodeInfoWrap {
+	position: absolute;
+	height: 130px;
+	width: 130px;
+	z-index: 1;
+	top: 70px;
+	left: 6%;
+	padding: 1em;
+	background: #fff;
+	border-radius: 8px;
+	-webkit-box-shadow: 4px 2px 8px 0px rgba(0,0,0,0.4);
+	-moz-box-shadow: 4px 2px 8px 0px rgba(0,0,0,0.4);
+	box-shadow: 4px 2px 8px 0px rgba(0,0,0,0.4);
+	cursor: pointer;
+}
+
+.gameCodeInfoWrap ul li{
+    color: #005b7f;
+}
+
+/* Media queries for taskcodewrap and gamecodeinfowrap*/
+@media ( min-width : 768px ) {
+    #taskcodeWrap {
+        display: block;
+        width: auto;
+        padding: .5rem 0;
+        float: left;
+    }
+    
+    #taskcodeWrap input {
+        font-weight: 300;
+        letter-spacing: 2px;
+        height: 2rem;
+        outline: none;
+        padding: 0 0.75rem;
+        width: 4rem;
+        margin-left: 0.5em;
+    }
+    
+    #taskcodeWrap label { margin: 0;}
+    
+    .gameCodeInfoWrap {
+        height: 200px;
+        width: 200px;
+        top: 70px;
+        left: 25%;
+    }
+
+}
+
+.gameCodeInfoWrap:before {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: -15px;
+	left: 50%;
+	margin-left: -15px;
+	border-bottom: 15px solid white;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+ }
+
+.gameCodeInfoWrap:hover {
+	background: #f2f2f2;
+}
+
+.gameCodeInfoWrap:hover:before {
+	border-bottom: 15px solid #f2f2f2;
+}
+
+#logoutWrap {
+	text-align: center;
+    padding: .5em 0 0;
+}
+#logoutWrap p {
+    display: inline-block;
+    width: 32%;
+    padding: .5em 0;
+    margin: 0;
+    border-left: 1px solid rgba(0,0,0,.1);
+    cursor: pointer;
+}
+
+#logoutWrap .student {
+    color: white;
+    cursor: initial;
+}
+
+@media ( min-width : 768px ) {
+	#logoutWrap {
+        float: right;
+        padding: 0.5rem 0;
+    }
+    
+    #logoutWrap p { 
+        padding: 0 6px;
+        width: auto;
+    }
+}
+
+#logoutWrap p:hover {
+	color: white;
+}
+
+#logoutWrap p:first-child {
+	border: none;
+}
+
+#logoutWrap a {
+	-webkit-transition: none;
+	transition: none;
+}
+
+
+#subjectsHeader {
+	display: block;
+}
+#subjectsHeader h1, input[type="text"] {
+	display: inline-block;
+}
+#subjectsHeader input[type="text"] { 
+	height: 38px;
+	padding: 6px 10px;
+	margin: 0 20px;
+	background-color: transparent;
+	border: none;
+	border-left: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	box-shadow: none;
+	box-sizing: border-box; 
+}
+
+/*--------------------------*\
+	Games - Home
+\*--------------------------*/
+#homeGameWrap {
+    padding: 0 1em;
+    height: calc(100vh - 5em);
+    overflow: scroll;
+}
+
+.gameWrapper {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 200px;
+	margin: 0 0 4%;
+	background-size: 100%;
+	border: 4px solid #00a8ff;
+	box-shadow: inset 0px -50px 0px 0px #00a8ff;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+	transition: box-shadow .3s;
+	-webkit-transition: box-shadow .3s;
+}
+
+.gameWrapper:after {
+	clear: both;
+	content: '';
+	display: block;
+}
+
+@media ( min-width : 415px ) {
+	.gameWrapper { 
+        width: 48%; margin: 0 1% 2% 1%;
+        background-size: 100% calc(100% - 49px);
+    }
+}
+
+@media ( min-width : 768px ) {
+	.gameWrapper { width: 23%; min-width: 230px; margin: 0 2% 2% 0;}
+    #homeGameWrap {
+        padding: 0 1em 0 0;
+        height: calc(100vh - 7em);
+    }
+}
+@media ( min-width : 1600px ) {
+	.gameWrapper { width: 17%; }
+}
+
+.gameWrapper:hover {
+	box-shadow: inset 0px -65px 0px 0px #00a8ff;
+}
+.gameWrapper h3 {
+	position: absolute;
+	width: 100%;
+	bottom: 10px;
+	margin: 0;
+}
+
+/*--------------------------*\
+	SingleGame Page
+\*--------------------------*/
+.gameHeader {
+    position: relative;
+    width: 100%;
+    height: 4.5em;
+    margin-top: 0.5em;
+    padding: 0 1em;
+}
+
+.gameTextWrap {
+	display: block;
+    float: left;
+    margin-bottom: 1em;
+}
+.gameTextWrap h1,
+.gameTextWrap p{
+    font-size: .9em;
+	margin: 0;
+}
+.gameTextWrap h1 {
+    display: inline-block;
+}
+
+.gameTextWrap p{
+    margin: 0;
+    padding: 4px 8px;
+    border-radius: 5px;
+    text-align: center;    
+    background: #00a8ff;
+    color: white;
+
+}
+
+.go-to-game-mobile {
+    float: right;
+    font-size: 1.4em;
+    color: white;
+    margin-top: 10px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    background: #2ECC70;
+    background-image: -o-linear-gradient(bottom, #2ECC70 50%, #27AE5F 90%);
+    background-image: -moz-linear-gradient(bottom, #2ECC70 50%, #27AE5F 90%);
+    background-image: -webkit-linear-gradient(bottom, #2ECC70 50%, #27AE5F 90%);
+    background-image: -ms-linear-gradient(bottom, #2ECC70 50%, #27AE5F 90%);
+    background-image: linear-gradient(to bottom, #2ECC70 50%, #27AE5F 90%);
+}
+
+.go-to-game {
+    display: none;
+    width: 180px;
+    float: right;
+    margin-right: 35px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#iframeWrap {
+    height: 100%;
+    width: 100%;
+}
+
+iframe {
+   width: 100px;
+    height: 100px;
+    min-width: 100%;
+    min-height: 100%;
+    border: none;
+}
+
+.closeWrapper {
+    position: absolute;
+    top: .05em;
+    right: .08em;
+    color: white;
+    background: red;
+    border-radius: 100%;
+    cursor: pointer;
+}
+.lightboxGame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background: rgba(0,0,0, .6);
+    z-index: 999;
+    text-align: center;
+    overflow: visible;
+}
+
+.onpageGame {
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 7em);
+    top: 7em;
+    left: 0;
+    padding: 1em;
+}
+
+@media ( min-width : 768px ) {
+    .onpageGame {
+        position: relative;
+        top: 0;
+        width: calc(100% - 35px);
+        height: calc(100vh - 12em);
+        padding: 0;
+    }
+    
+    .gameHeader {
+        margin-top: 0em;
+        padding: 0;
+    }
+    
+    .gameTextWrap h1,
+    .gameTextWrap p {
+        display: block;
+        font-size: 1em;
+    }
+    
+    .gameTextWrap h1 {
+        font-size: 1.2em;
+    }
+    .gameTextWrap p {
+        margin: 5px 0 0;
+        padding: 3px 8px;
+    }
+    
+    .go-to-game { display: block; }
+    .go-to-game-mobile { display: none; }
+}
+
+
+/*--------------------------*\
+	Before/After Login
+\*--------------------------*/
+.logRegWrap {
+	/*float: left;*/
+	background: rgba(40,140,230,.95);
+	max-width: 25rem;
+	margin: -4em 1em;;
+	padding: 1rem 3rem 4rem;
+	border: 1px solid #00a8ff;
+	border-radius: 0.5em;
+}
+
+.headerBeforeLogin * {
+	float: none !important;
+	margin: 0 auto;
+	text-align: center;
+}
+@media ( min-width : 430px ) {
+    .logRegWrap { margin: -4em auto;}
+}
+@media ( min-width : 768px ) {
+    .logRegWrap { margin: 0 auto;}
+}
+/*--------------------------*\
+	Intro
+\*--------------------------*/
+.introSalami { display: none; }
+
+@media ( min-width : 1024px ) {
+	.introSalami {
+		position: absolute;
+		display: block;
+		height: 360px; /*729px;*/
+		width: 300px;
+		right: 8%;
+		bottom: 5rem;
+		float: right;
+		background: url(../img/salami_hover.png) no-repeat;
+		background-size: 300px 729px;
+		background-position: left 5px;
+	}
+	
+	.logRegWrap:hover + .introSalami {background-position: left bottom;}
+	
+}
+
+@media ( min-width : 1600px ) {
+	.introSalami {
+		margin-top: 3rem;
+		margin-right: 10%;
+	}
+}
+
+	.introSalami > p {
+		position: relative;
+		display: none;
+		float: right;
+		background: white;
+		padding: 10px;
+		margin: -30px;
+		border-radius: 20px;
+		width: 130px;
+	}
+	.introSalami > p:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 0;
+		height: 0;
+		border-bottom: 24px solid white;
+		border-right: 24px solid transparent;
+	}
+	.introSalami > p > b { color: red;}
+	.logRegWrap:hover + .introSalami > p {
+		display: block;
+	}
+}
+
+/*--------------------------*\
+	Angular input hints
+\*--------------------------*/
+.logRegWrap .ng-invalid.ng-dirty {
+	border-color: red !important;
+}
+
+.logRegWrap .ng-valid.ng-dirty {
+	border-color: green !important;
+}
+.logRegWrap .ng-valid.ng-dirty,
+.logRegWrap .ng-invalid.ng-dirty {
+	border-width: 3px;
+}
+
+/*--------------------------*\
+	Reg/login Button
+\*--------------------------*/
+.logRegWrap button{
+    display: inline-block;
+    height: 38px;
+    padding: 0 30px;
+    color: #555;
+    text-align: center;
+    font-size: 11px;
+    line-height: 38px;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    float: left;
+    box-sizing: border-box; }
+.logRegWrap a p{
+    float: right;
+    margin: 0px;
+    color: white;
+    margin-top: 8px;
+    font-size: 0.8em; }
+.logRegWrap button:hover {
+    background-color: #fdfdfd;
+    color: #333;
+    outline: 0; }
+
+
+/*--------------------------*\
+	RegForm
+\*--------------------------*/
+.logRegWrap input[type="email"],
+.logRegWrap input[type="number"],
+.logRegWrap input[type="text"],
+.logRegWrap input[type="password"],
+.logRegWrap select {
+    height: 38px;
+    width: 100%;
+    padding: 6px 10px;
+    margin: 0 0 4px;
+    background-color: #fff;
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box; 
+}
+.logRegWrap input[type="email"],
+.logRegWrap input[type="number"],
+.logRegWrap input[type="text"],
+.logRegWrap input[type="password"],
+.logRegWrap select,
+.select {
+  -webkit-appearance: none;
+	 -moz-appearance: none;
+		  appearance: none; 
+}
+
+.regForm div{
+	position: relative;
+}
+.form-alert {
+	position: absolute;
+	height: 32px;
+	right: calc(100% + 11px);
+	top: 3px;
+	padding: 5px 10px;
+	font-size: 14px;
+	line-height: 22px;
+	white-space: nowrap;
+}
+.form-alert:before {
+	content: "";
+	position: absolute;
+	right: -11px;
+	top: 0px;
+	width: 0;
+	height: 0;
+	border-top: 16px solid transparent;
+	border-bottom: 16px solid transparent;
+}
+
+.alert-red { color: white; background: red; }
+.alert-red:before { border-left: 11px solid red; }
+.alert-yellow { color: black; background: yellow; }
+.alert-yellow:before { border-left: 11px solid yellow; }
+
+
+option {
+	color: black;
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+	margin: 5px 0;
+}
+
+/*--------------------------*\
+	Mobile view
+\*--------------------------*/
+
+.mobilebar {
+    position: absolute;
+    height: 4rem;
+    width: 100%;
+    z-index: 6;
+    background: #6fd1f8;
+}
+
+.mobilebar #logo {
+	width: 51%;
+	height: 4rem;
+    margin-top: 4px;
+	float: left;
+	background-position: 0.5rem center;
+}
+
+.mobilebar .backMobile {
+    display: inline-block;
+    width: 24%;
+    height: 4rem;
+    padding: 1rem 0;
+    text-align: right;
+    line-height: 1rem;
+    cursor: pointer;
+}
+
+.mobilebar #menuButton {
+    width: 25%;
+    height: 4rem;
+    float: right;
+    text-align: right;
+    padding: 1rem 1rem 0 0;
+    line-height: 2rem;
+    text-indent: 1rem;
+    cursor: pointer;
+    
+}
+.mobilebar .backMobile i,
+.mobilebar #menuButton i{
+	color: white;
+	font-size: 2rem;
+}
+
+.mobilenav {
+	position: absolute;
+	width: 100%;
+	height: calc(100vh - 3.8rem);
+	top: 4rem; left: 0;
+	z-index: 5;
+}
+
+.swiper-header {
+	width: 100%;
+	height: 4rem;
+	background: rgba(255,255,255,0.2);
+	padding: 1rem;
+	color: #005b7f;
+}
+
+.swiper-header .selectSubjectWrap{
+	width: 65%;
+	height: 2rem;
+	float: left;
+}
+
+.swiper-header .selectSubjectWrap select{
+	font-family: 'Lato', 'Helvetica', Helvetica, Arial, sans-serif;
+	height: 2.4rem;
+	font-size: 1.1rem;
+	background: rgba(255,255,255,0.3);
+	width: 100%;
+    padding-left: 0.5em;
+	margin-top: -3px;
+	font-weight: 700;
+	border:none;
+	outline:none;
+	color: #005b7f;
+	display: inline-block;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+	cursor:pointer;
+}
+
+.swiper-header .selectSubjectWrap {position:relative}
+.swiper-header .selectSubjectWrap:after {
+	content:'>';
+	font:1.3rem "Consolas", monospace;
+    font-weight: 700;
+	color: #005b7f;
+	-webkit-transform:rotate(90deg);
+	-moz-transform:rotate(90deg);
+	-ms-transform:rotate(90deg);
+	transform:rotate(90deg);
+	right: 0.5rem; 
+    top:calc(50% - 0.7rem);
+	position:absolute;
+	pointer-events: none;
+}
+
+.swiper-header .selectSubjectButtonsWrap{
+	width: 35%;
+	height: 2rem;
+	line-height: 2rem;
+	float: left;
+	text-align: right;
+}
+
+.swiper-header .selectSubjectButtonsWrap div{
+	display: inline-block;
+	font-size: 2rem;
+    margin-left: 5px;
+}
+
+.swiper-container {
+	width: 100%;
+	height: calc(100% + 65px);
+}
+
+.swiper-slide {
+	height: calc(100vh - 10rem);
+	padding: 1rem;
+	overflow: auto;
+}
+
+.swiper-pagination {
+	background: transparent;
+}

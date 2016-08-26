@@ -1,0 +1,17 @@
+<!-- login.html -->
+    <div ng-show="loggedIn == 'false'" class="logRegWrap">
+        <h1>Logg inn som elev eller lærer</h1>
+        
+        <form name="loginForm">
+            <input type="text" ng-model="user.username" ng-model-options="{ debounce: 200 }" placeholder="Brukernavn" required> 
+            <input type="password" ng-model="user.password" placeholder="Passord" required> 
+            <br><br>
+            <button class="alignright" ng-click='loginUser(user);' ng-disabled='loginForm.$invalid'>Logg inn</button>
+        </form>
+     
+        <a href="#/registerStudent"><p class="alignleft">Registrer</p></a>
+    </div>
+    <div ng-if="user.username" class="introSalami">
+        <p ng-if="!loginError">Velkommen : <br> {{user.username}}</p>
+        <p ng-if="loginError" class="loginError-if"><b>Prøv på nytt :</b> <br> {{user.username}}</p>
+    </div>

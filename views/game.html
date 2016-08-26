@@ -1,0 +1,28 @@
+<!-- game.html -->
+<div ng-repeat="info in gameInfo">
+    <div class="gameHeader">
+        <div class="gameTextWrap">
+            <h1>{{info.gamename}}</h1> 
+            <p>Oppgavekode: {{info.gamecode}}</p>
+        </div>
+
+        <div class="go-to-game">
+            <p class="btn-two" ng-click="goFullscreen()">Spill i fullskjerm</p>
+            <!--<img ng-srcset="{{info.gamepath}}/thumbnail.png" alt="{{info.gamename}}">-->
+        </div>
+        <div ng-click="goFullscreen()" class="go-to-game-mobile">
+            <i class="fa fa-arrows-alt"></i>
+        </div>
+    </div>
+    
+    <div ng-class="gameClass"> <!--lightboxGame-->
+        <div class="closeWrapper">
+            <i class="fa fa-times-circle-o fa-4x closeit" ng-show="onFull" ng-click="goFullscreen()"></i>
+        </div>
+        <div id="iframeWrap">
+        <iframe scrolling="no" ng-src="{{info.gamepath}}">
+            Din nettleser støtter ikke iframe
+        </iframe>
+        </div>
+    </div>
+</div>

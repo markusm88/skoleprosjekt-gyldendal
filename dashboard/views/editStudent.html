@@ -1,0 +1,35 @@
+<div id="list" class="noheader">
+	<h1>Du redigerer nå: {{student.name}} {{student.surname}}</h1>
+	<form ng-submit="edit(student.userid)">
+		<div class="form-group">
+			<label for="nameInput">Fornavn</label>
+			<input type="text" class="form-control" ng-model="request.name" id="nameInput" placeholder="Fornavn">
+		</div>
+		<div class="form-group">
+			<label for="surNameInput">Etternavn</label>
+			<input type="text" class="form-control" ng-model="request.surname" id="surNameInput"  placeholder="Etternavn">
+		</div>
+		<div class="form-group">
+			<label for="usernameInput">Brukernavn</label>
+			<input type="text" class="form-control" ng-model="request.username" id="usernameInput"  placeholder="Brukernavn" required>
+		</div>
+		<div class="form-group">
+			<label for="passwordInput">Passord</label>
+			<input type="text" class="form-control" ng-model="request.password" id="passwordInput"  placeholder="Skriv passord for å endre">
+		</div>
+		<div class="form-group">
+			<label for="emailInput">E-post</label>
+			<input type="email" class="form-control" ng-model="request.email" id="emailInput"  placeholder="E-post">
+		</div>
+		<div class="form-group">
+			<label for="classInput">Klasse</label>
+			<select ng-options="class.classid as (class.grade + ' ' + class.classname) for class in classes" id="classInput" ng-model="selected"></select>
+		</div>
+		<div class="form-group">
+			<label for="classYearInput">Klassekull</label>
+			<input type="number" class="form-control" ng-model="request.classyear" id="classYearInput" placeholder="Klassekull"></select>
+		</div>
+		<input type="submit" class="btn btn-success" value="Lagre">
+		<button ng-click="cancel()" class="btn btn-default">Avbryt</button>
+	</form>
+</div>

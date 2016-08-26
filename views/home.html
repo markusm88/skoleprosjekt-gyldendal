@@ -1,0 +1,6 @@
+<!-- home.html -->
+<div id="homeGameWrap">
+    <div ng-repeat="subject in subjects" class="gameWrapper" ng-click="selectedSubject(subject)" style="background-image: url('img/subjectthumbnails/{{subject.name | lowercase}}.png')">
+        <h3>{{subject.name}}</h3>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+--- LOGOUT ----------------------------------------------------------------------------
+---
+
+$http.get('api/logout.php');
+---------------------------------------------------------------------------------------
+
+
+
+
+
+--- LOGIN -----------------------------------------------------------------------------
+--- user = JSON(username='', password='')
+
+var $promise=$http.post('api/login.php', user);
+
+$promise.then(function(msg){
+    if(msg.data==='success'){
+        console.log('success login');
+    } else
+        console.log('error login');
+});
+---------------------------------------------------------------------------------------
+
+
+
+
+
+--- GET SESSION INFO ------------------------------------------------------------------
+---
+
+$http.get('api/session.php').success(function(data){
+    var sessionInfo = data;
+});
+---------------------------------------------------------------------------------------
+
+
+
+
+
+--- GET USER BY USERID ----------------------------------------------------------------
+---
+
+$http.get('api/database.php', {'request':getUserById, 'id':'<[USERID]>'}).success(function(data){
+    var userJSON = data;
+});
+---------------------------------------------------------------------------------------
+
+
+
+
+
+--- GET HOMEWORK BY USERNAME ----------------------------------------------------------
+---
+
+$http.get('api/database.php', {'request':getHomeworkByUsername, 'username':'<[USERNAME]>'}).success(function(data){
+    var homeworkListJSON = data;
+});
+---------------------------------------------------------------------------------------
+
+
+
+
+
+
+--- REGISTER STUDENT ------------------------------------------------------------------
+--- user = JSON(schoolid(int), classid(int), password, name, surname, classyear(int), email)
+
+$http.post('api/database.php', user).success(function(data) {
+    var success = data; //true - false
+});
+---------------------------------------------------------------------------------------

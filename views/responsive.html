@@ -1,0 +1,19 @@
+<div class="swiper-header">
+	<div class="selectSubjectWrap">
+		<select ng-options="subject as subject.name for subject in subjects" ng-model="selectedSubject"></select>
+	</div>
+	<div class="selectSubjectButtonsWrap">
+		<div ng-click="goToPrev()" ng-show="selectedSubject.subjectsid > 1"><i class="fa fa-arrow-circle-o-left"></i></div>
+		<div ng-click="goToNext()" ng-show="selectedSubject.subjectsid < subjects.length"><i class="fa fa-arrow-circle-o-right"></i></div>
+	</div>
+</div>
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+		<div ng-repeat="subject in subjects" class="swiper-slide" on-finish-render="ngRepeatFinished">
+			<div ng-repeat="subjectGame in subjectGames[subject.subjectsid - 1] | diffFilter" class="gameWrapper" ng-click="selectedGame(subjectGame.gamecode)" style="background-image: url('games/{{subjectGame.gamecode}}/thumbnail.jpg')">
+				<h3>{{subjectGame.gamename}}</h3>
+			</div>
+		</div>
+	</div>
+	<div class="swiper-pagination"></div>
+</div>
